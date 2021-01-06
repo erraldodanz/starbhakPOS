@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-//© 2020 Copyright: Tahu Coding
 use Illuminate\Http\Request;
 use App\Product;
 use App\HistoryProduct;
 use App\ProductTranscation;
-//sorry kalau ada typo dalam penamaan dalam bahasa inggris 
 use App\Transcation;
 use Auth;
 use DB;
@@ -252,4 +250,3 @@ class TransactionController extends Controller
 
     
 }
-//© 2020 Copyright: Tahu Coding

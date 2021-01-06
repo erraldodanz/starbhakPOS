@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-//© 2020 Copyright: Tahu Coding
 use File;
 use App\Product;
 use App\HistoryProduct;
@@ -162,6 +161,4 @@ class ProductController extends Controller
 
         
     }
-
-    //© 2020 Copyright: Tahu Coding
 }

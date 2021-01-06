@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-| <!-- © 2020 Copyright: Tahu Coding -->
 */
 
 Route::get('/', function () {
@@ -22,7 +21,6 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {  
     Route::get('/home', 'HomeController@index')->name('home');
     Route::resource('/products','ProductController');
-    //sorry kalau ada typo penggunaan bahasa inggris krn saya orang indonesia yang mencoba belajar b.inggris
     Route::get('/transcation', 'TransactionController@index');
     Route::post('/transcation/addproduct/{id}', 'TransactionController@addProductCart');
     Route::post('/transcation/removeproduct/{id}', 'TransactionController@removeProductCart');

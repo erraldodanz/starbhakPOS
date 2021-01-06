@@ -1,5 +1,4 @@
 @extends('layouts.app')
-<!-- © 2020 Copyright: Tahu Coding -->
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
@@ -12,15 +11,11 @@
                                 <h4 class="font-weight-bold">Products</h4>
                             </div>
                             <div class="col text-right">
-                                <select name="" id="" class="form-control from-control-sm" style="font-size: 12px">
-                                    <option value="" holder>Filter Category</option>
-                                    <option value="1">All Category...</option>
-                                    <!-- Kembangkan sendiri ya bagian ini kalau bisa pake select2 biar keren -->
-                                </select>
+                            
                             </div>
                             <div class="col"><input type="text" name="search"
                                     class="form-control form-control-sm col-sm-12 float-right"
-                                    placeholder="Search Product..." onblur="this.form.submit()"></div>
+                                    placeholder="Cari Product" onblur="this.form.submit()"></div>
                             <div class="col-sm-3"><button type="submit"
                                     class="btn btn-primary btn-sm float-right btn-block">Cari Product</button></div>
                         </div>
@@ -29,7 +24,7 @@
                 <div class="card-body">
                     <div class="row">
                         @foreach ($products as $product)
-                        <div style="width: 16.66%;border:1px solid rgb(243, 243, 243)" class="mb-4">
+                        <div style="width:200px;" class="mb-4">
                             <div class="productCard">
                                 <div class="view overlay">
                                     <form action="{{url('/transcation/addproduct', $product->id)}}" method="POST">
@@ -74,7 +69,6 @@
                             <select name="" id="" class="form-control from-control-sm" style="font-size: 13px">
                                 <option value="1">Take Away Customer</option>
                                 <option value="" holder>Other Customer...</option>
-                                <!-- Kembangkan sendiri ya bagian ini -->
                             </select>
                         </div>
                     </div>
@@ -141,17 +135,6 @@
                                 {{ number_format($data_total['sub_total'],2,',','.') }} </th>
                         </tr>
                         <tr>
-                            <th>
-                                <form action="{{ url('/transcation') }}" method="get">
-                                    PPN 10%
-                                    <input type="checkbox" {{ $data_total['tax'] > 0 ? "checked" : ""}} name="tax"
-                                        value="true" onclick="this.form.submit()">
-                                </form>
-                            </th>
-                            <th class="text-right">Rp.
-                                {{ number_format($data_total['tax'],2,',','.') }}</th>
-                        </tr>
-                        <tr>
                             <th>Total</th>
                             <th class="text-right font-weight-bold">Rp.
                                 {{ number_format($data_total['total'],2,',','.') }}</th>
@@ -187,7 +170,7 @@
         <!-- Add class .modal-full-height and then add class .modal-right (or other classes from list above) to set a position to the modal -->
         <div class="modal-dialog modal-full-height modal-right" role="document">
 
-        <!-- Sorry campur2 bahasa indonesia sama inggris krn kebiasaan make b.inggris eh ternyata buat aplikasi buat indonesia jadi gini deh  -->
+        
             <div class="modal-content">
                 <div class="modal-header indigo">
                     <h6 class="modal-title w-100 text-light" id="myModalLabel">Billing Information</h6>
@@ -236,8 +219,7 @@
         </div>
     </div>
     @endsection
-    <!-- © 2020 Copyright: Tahu Coding -->
-    <!-- Ini error harusnya bisa dinamis ambil value dari controller tp agar cepet ya biar aja gini silahkan modifikasi  -->
+
     @push('script')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     @if(Session::has('error'))
@@ -252,7 +234,7 @@
     @if(Session::has('errorTransaksi'))
     <script>
         toastr.error(
-            'Transaksi tidak valid | perhatikan jumlah pembayaran | cek jumlah product'
+            'Transaksi tidak valid'
         )
 
     </script>
@@ -261,7 +243,7 @@
     @if(Session::has('success'))
     <script>
         toastr.success(
-            'Transaksi berhasil | Thank Your from Tahu Coding'
+            'Transaksi berhasil'
         )
 
     </script>
@@ -376,5 +358,4 @@
         }
 
     </style>
-    <!-- © 2020 Copyright: Tahu Coding -->
     @endpush

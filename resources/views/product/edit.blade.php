@@ -68,7 +68,7 @@
                                 <div class="form-group">
                                     <label for="addQty">Add / Reduce Qty </label>
                                     <input type="number" class="form-control" name="addQty" value="{{ old('addQty') }}"
-                                        placeholder="Use positive number to increase | negative number to decrease">
+                                        placeholder="Tambah Stock">
                                     @if(Session::has('errorQty'))
                                     <small class="text-danger font-weight-bold">
                                         {{ Session('errorQty') }}
